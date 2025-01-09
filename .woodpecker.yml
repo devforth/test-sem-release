@@ -1,0 +1,19 @@
+clone:
+  git:
+    image: woodpeckerci/plugin-git
+    settings:
+      partial: false
+      depth: 5
+
+steps:
+  build:
+    image: docker
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+    commands:
+      - npm clean-install
+      - npm audit signatures
+      - npx semantic-release
+    secrets:
+      - GITHUB_TOKEN
+      - NPM_TOKEN
