@@ -7,7 +7,7 @@ clone:
 
 steps:
   build:
-    image: docker
+    image: node:22
     volumes:
       - /var/run/docker.sock:/var/run/docker.sock
     commands:
