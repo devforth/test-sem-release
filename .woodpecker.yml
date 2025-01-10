@@ -12,6 +12,7 @@ steps:
       - /var/run/docker.sock:/var/run/docker.sock
     commands:
       - npm clean-install
+      - npm run build
       - npm audit signatures
       - npx semantic-release
     secrets:
